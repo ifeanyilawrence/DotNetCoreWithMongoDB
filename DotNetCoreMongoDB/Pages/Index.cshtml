@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2>Asset Pairs</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.AssetList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Symbol)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.AssetId">Edit</a> |
+                        <button type="submit" asp-route-id="@item.AssetId" asp-page-handler="delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
