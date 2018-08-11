@@ -18,7 +18,7 @@ namespace DotNetCoreWithMongoDB.Test
         }
 
         [Fact]
-        public void ReturnListOfAsset()
+        public void GetAssetListTest()
         {
             Expression<Func<Asset, bool>> selector = a => a.Id != null;
             Task.Run(async () => {
@@ -26,7 +26,7 @@ namespace DotNetCoreWithMongoDB.Test
             }).Wait();
         }
         [Fact]
-        public void CreateGetDeleteAsset()
+        public void CreateGetDeleteAssetTest()
         {
             Asset asset = new Asset { Symbol = "SYMBOL" };
             Task.Run(async () => {
